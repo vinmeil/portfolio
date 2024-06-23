@@ -12,7 +12,7 @@ html {
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem 8rem;
 }
@@ -35,7 +35,7 @@ html {
 .header-nav-items li::before {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -2px;
   left: 50%;
   width: 0;
   height: 2px;
@@ -70,6 +70,7 @@ html {
 
 @media (max-width: 1024px) {
   .nav-container {
+    justify-content: space-between;
     padding: 1.5rem 2rem;
   }
   
@@ -112,12 +113,31 @@ html {
     z-index: 999; 
   }
   
-  .header-nav-items > ul {
+  .header-nav-items ul {
     margin: 6rem 0 0 -1.5rem;
+    display: flex;
+    flex-direction: column;
   }
 
-  .header-nav-items > ul > li {
-    padding-bottom: 1rem;
+  .header-nav-items li::before {
+    left: 0;
+  }
+
+  .header-nav-items li {
+    display: inline-block;
+    margin-bottom: 1rem;
+    width: auto;
+    border-bottom: 1px solid #bbb; /* Add a bottom border to each li as a separator */
+    padding-bottom: 1rem; /* Optional: Adds some space between the text and the border */
+  }
+
+  /* .header-nav-items li:first-child {
+    padding-top: 0.5rem;
+    border-top: 2px solid #bbb;
+  } */
+  
+  .header-nav-items li:last-child {
+    border-bottom: none; /* Removes the border from the last li element */
   }
   
   .header-nav-items.active {
@@ -130,13 +150,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 8rem;
-  }
-}
-
-@media (max-width: 1366px) {
-  .nav-container > h1 {
-    display: none;
+    padding: 1rem 3rem;
   }
 }
   
