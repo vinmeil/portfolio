@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --background-color: #F9F6EE;
+}
+
+html {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  background-color: var(--background-color);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 8rem;
+}
+
+#hamburger-icon {
+  display: none;
+}
+
+.header-nav-items ul {
+  list-style-type: none;
+}
+
+.header-nav-items li {
+  display: inline-block;
+  font-size: 28px;
+  margin: 0 2rem;
+  transition: transform 0.3s ease;
+}
+
+.header-nav-items li::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.header-nav-items li:hover {
+  transform: translateY(-5px);
+}
+
+.header-nav-items li:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+.header-nav-items a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#dark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 1.5rem 2rem;
+  }
+  
+  #hamburger-icon {
+    display: block;
+    cursor: pointer;
+    background-color: var(--background-color);
+    z-index: 1000;
+  }
+  
+  #hamburger-icon span {
+    display: flex;
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+    transition: 0.4s;
+  }
+  
+  #hamburger-icon.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  #hamburger-icon.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  #hamburger-icon.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .header-nav-items {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: var(--background-color);
+    transition: left 0.3s; 
+    z-index: 999; 
+  }
+  
+  .header-nav-items > ul {
+    margin: 6rem 0 0 -1.5rem;
+  }
+
+  .header-nav-items > ul > li {
+    padding-bottom: 1rem;
+  }
+  
+  .header-nav-items.active {
+    left: 0;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 8rem;
+  }
+}
+
+@media (max-width: 1366px) {
+  .nav-container > h1 {
+    display: none;
+  }
+}
+  
